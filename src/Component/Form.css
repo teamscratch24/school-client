@@ -1,0 +1,181 @@
+.form {
+ display: flex;
+ flex-direction: column;
+ background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  right: 0;
+  min-width: 500px;
+}
+
+.form h2 {
+  margin-bottom: 20px;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input,
+.form textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #0056b3;
+}
+
+.admin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.cls-btn{
+  display: flex;
+  justify-content: space-between;
+}
+
+.add_btn{
+  display: flex;
+  width: 100%;
+  min-height: 2dvw;
+  justify-content: end;
+  padding: 2dvw;
+}
+
+.add_btn button{
+  background-color: #007bff;
+  min-width: 100px;
+  padding: 0.5dvw;
+  outline: none;
+  color: white;
+  border-radius: 20px;
+  border: none;
+
+}
+
+.add_btn button:hover{
+  cursor: pointer;
+}
+
+
+.eventcard_container{
+  width: 100%;
+  display: flex;
+  overflow-x: scroll;
+  flex-wrap: wrap;
+  min-height:600px;
+}
+
+
+.card {
+  width: 300px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 16px;
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.event_card_img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.eventcard_content {
+  padding: 16px;
+}
+
+.eventcard_content h2 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.eventcard_date_content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event_des {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.add_btn {
+  text-align: right;
+}
+
+.add_btn button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.blue_btn{
+   background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add_btn button:hover {
+  background-color: #0056b3;
+}
+
+.captial{
+  text-transform: capitalize;
+}
+
+
+.two_flex_btn{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.two_flex_btn button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
