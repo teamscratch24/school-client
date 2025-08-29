@@ -8,7 +8,10 @@ const Urls = {
     GETADMINS : `/users`,   
     UPLOADIMGE : "/event/gallery/add" ,
     DELETEIMAGE : "/event/gallery/remove",
-    GETEVENTIMAGES : "/event/gallerywithid"
+    GETEVENTIMAGES : "/event/gallerywithid",
+    ADDANNOUNCEMENT : "/announcements/add",
+    DELETEANNOUNCEMENT : "/announcements/delete",
+    GETANNOUNCEMENTS : "/announcements"
 }
 
 export default Urls;

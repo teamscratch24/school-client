@@ -4,7 +4,7 @@ import GalleryForm from "./GallerForm.js";
 import "./Gallery.css";
 import Urls from "../../utils/Api.js";
 import axiosInstance from "../../utils/apiRequest.js";
-import emptyImage  from "../../assets/landSecondBg.png"
+
 
 const GalleryGrid = ({ EventId, setOpenGallery }) => {
   const [openForm, setOpenForm] = useState(false);
@@ -19,8 +19,6 @@ const GalleryGrid = ({ EventId, setOpenGallery }) => {
       <GalleryForm id={EventId} eveName={eveName} setOpenForm={setOpenForm} setRender={setRender} render={render} />
     );
   }, [EventId , eveName , render]);
-
-  const EventImages = [ { id: 1, url: emptyImage }, { id: 2, url: emptyImage }];  
 
   const handleDelete = (Id) => {
     try {
@@ -58,7 +56,7 @@ const GalleryGrid = ({ EventId, setOpenGallery }) => {
         }
       })
       .catch((err) => {
-      //  alert(err.response.data.msg)-*-*------------++++++++
+       alert(err.response.data.msg)
       });
     } catch (error) {
       
@@ -93,7 +91,7 @@ const GalleryGrid = ({ EventId, setOpenGallery }) => {
       </div>
 
       <div className="gallery-grid">
-        { EventImages.length > 0  ? EventImages.map((img) => (
+        { eveImg.length > 0  ? eveImg.map((img) => (
           <div className="gallery-item" key={img.id}>
             <img src={img.url} alt="Gallery" />
             <div className="overlay">

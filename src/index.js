@@ -7,6 +7,7 @@ import Login from './Pages/Login/Login';
 import EventForm from './Component/Event/EventForm';
 import AdminManagement from './Component/Admin/AdminAdd';
 import Auth from './utils/Auth.js';
+import Announcement from './Component/Announcement/Annoncement.js';
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
         element: <Navigate to="/admin/dashboard/event" />
       },
         { path: 'event', element: <EventForm /> },
+        { path: 'announcement', element: <Announcement /> },
         { path: 'admin', element: <AdminManagement /> },
         { path: '*', element: <Navigate to="/admin" /> }
       ]

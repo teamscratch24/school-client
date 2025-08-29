@@ -13,11 +13,9 @@ export default function EventForm() {
   const [openGallery, setOpenGallery] = useState(false);
   const [render,setRender] = useState(false);
 
-  const Events = [{ _id:"1",title: "Event 1", date: "2023-10-01", time: "10:00 AM", description: "Description 1" }
-    ,{ _id:"2", title: "Event 2", date: "2023-10-02", time: "11:00 AM", description: "Description 2" }];
-
+ 
   const events = useMemo(() => {
-    return  Events.map((eve, i) => (
+    return  event.map((eve, i) => (
           <div className="card" key={i}>
             <img className="event_card_img" src={null} alt="" />
             <div className="eventcard_content">
@@ -49,6 +47,7 @@ export default function EventForm() {
             </div>
           </div>
         ))
+        //eslint-disable-next-line
   }, [event]);  
 
   const [eventDetails, setEventDetails] = useState({
@@ -94,20 +93,20 @@ export default function EventForm() {
     } catch (error) {}
   };
 
-  // useEffect(() => {
-  //   try {
-  //     axiosInstance
-  //       .get(Urls.GETEVENTS)
-  //       .then((res) => {
-  //         if (res.status === 200) {
-  //           setEvents(res.data);
-  //         }
-  //       })
-  //       .catch((err) => {
-  //         alert(err.response.data.msg);
-  //       });
-  //   } catch (error) {}
-  // }, [render]);
+  useEffect(() => {
+    try {
+      axiosInstance
+        .get(Urls.GETEVENTS)
+        .then((res) => {
+          if (res.status === 200) {
+            setEvents(res.data);
+          }
+        })
+        .catch((err) => {
+          alert(err.response.data.msg);
+        });
+    } catch (error) {}
+  }, [render]);
 
   const deleteEveFun = (e, id) => {
     try {
@@ -128,7 +127,7 @@ export default function EventForm() {
   };
 
   return (
-    <div className="container">
+    <div className="container ">
       <h2>Events</h2>
       <div className="add_btn">
         <button

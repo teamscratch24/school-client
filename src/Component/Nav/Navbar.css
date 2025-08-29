@@ -11,11 +11,11 @@
   left: 0;
  background: linear-gradient(
   145deg,
-  #fbe8d3 0%,     /* faded peach */
-  #eac9b3 25%,    /* dusty rose */
-  #c8b6a6 50%,    /* vintage tan */
-  #a18f7b 75%,    /* muted brown */
-  #6b5e55 100%    /* deep sepia */
+  #fbe8d3 0%,     
+  #eac9b3 25%,    
+  #c8b6a6 50%,    
+  #a18f7b 75%,   
+  #6b5e55 100%    
 );
 }
 

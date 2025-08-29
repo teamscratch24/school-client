@@ -1,0 +1,21 @@
+.add_container{
+    display: flex; 
+    width: 100%;
+    justify-content: end;
+    align-items: center;
+    gap: 2%;
+   
+}
+
+.add_container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 50%;
+}
+
+.annonce_list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

@@ -20,6 +20,7 @@ export default function Navbar() {
       </div>
       <nav className="nav">
          <Link to="/admin/dashboard/event"><button >Event</button></Link>
+         <Link to="/admin/dashboard/announcement"><button >Announcement</button></Link>
          { role === "superadmin" &&
 
        ( <Link to="/admin/dashboard/admin"><button >Admins</button></Link>)
