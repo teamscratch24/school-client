@@ -77,7 +77,7 @@ const GalleryGrid = ({ EventId, setOpenGallery }) => {
             setOpenForm(true);
           }}
         >
-          Add Gallery
+          Add Images
         </button>
 
              <button
@@ -93,7 +93,7 @@ const GalleryGrid = ({ EventId, setOpenGallery }) => {
       <div className="gallery-grid">
         { eveImg.length > 0  ? eveImg.map((img) => (
           <div className="gallery-item" key={img.id}>
-            <img src={img.url} alt="Gallery" />
+            <img src={img?.url} alt="Gallery" />
             <div className="overlay">
               <button
                 onClick={() => handleDelete(img.id)}

@@ -5,6 +5,8 @@ import dateFun from "../../utils/dateFun";
 import GalleryGrid from "./GalleryGrid.js";
 import axiosInstance from "../../utils/apiRequest.js";
 import AppendForm from "../../utils/Forms.js";
+import empty from "../../assets/landSecondBg.png"
+
 
 export default function EventForm() {
   const [add, setAdd] = useState(false);
@@ -12,43 +14,6 @@ export default function EventForm() {
   const [eveId, setEveId] = useState("");
   const [openGallery, setOpenGallery] = useState(false);
   const [render,setRender] = useState(false);
-
- 
-  const events = useMemo(() => {
-    return  event.map((eve, i) => (
-          <div className="card" key={i}>
-            <img className="event_card_img" src={null} alt="" />
-            <div className="eventcard_content">
-              <h2>{eve?.title}</h2>
-              <div className=" eventcard_date_content">
-                <p>Date:{dateFun(eve?.date)}</p>
-                <p>Time:{eve?.time}</p>
-              </div>
-              <p className="event_des">{eve?.description}</p>
-
-              <div className="two_flex_btn">
-                <button
-                  onClick={() => {
-                    setOpenGallery(true);
-                    setEveId(eve?._id);
-                  }}
-                >
-                  View Gallery
-                </button>
-
-                <button
-                  onClick={(e) => {
-                    deleteEveFun(e, eve._id);
-                  }}
-                >
-                  Delete Event
-                </button>
-              </div>
-            </div>
-          </div>
-        ))
-        //eslint-disable-next-line
-  }, [event]);  
 
   const [eventDetails, setEventDetails] = useState({
     title: "",
@@ -84,6 +49,13 @@ export default function EventForm() {
         .then((res) => {
           if (res.status === 201) {
             setAdd(false);
+            setEventDetails({
+              title: "",
+              date: "",
+              description: "",
+              time: "",
+              image: "",
+            });
             setRender(!render);
           }
         })
@@ -99,7 +71,7 @@ export default function EventForm() {
         .get(Urls.GETEVENTS)
         .then((res) => {
           if (res.status === 200) {
-            setEvents(res.data);
+            setEvents([...res?.data]);
           }
         })
         .catch((err) => {
@@ -108,10 +80,12 @@ export default function EventForm() {
     } catch (error) {}
   }, [render]);
 
+  console.log(event,"Afdasfafasf");
+  
+
   const deleteEveFun = (e, id) => {
     try {
-      e.preventDefault();
-
+  
       axiosInstance
         .post(Urls.DELETEEVENT, { eventId: id })
         .then((res) => {
@@ -122,6 +96,7 @@ export default function EventForm() {
         })
         .catch((err) => {
           alert(err.response.data.msg);
+          setRender(!render);
         });
     } catch (error) {}
   };
@@ -224,7 +199,38 @@ export default function EventForm() {
       )}
 
       <div className="eventcard_container">
-       {events}
+      { event.length > 0 && event.map((eve, i) => (
+          <div className="card" key={i}>
+            <img className="event_card_img" src={eve?.eventImage || empty} alt="" />
+            <div className="eventcard_content">
+              <h2>{eve?.title}</h2>
+              <div className=" eventcard_date_content">
+                <p>Date:{dateFun(eve?.date)}</p>
+                <p>Time:{eve?.time}</p>
+              </div>
+              <p className="event_des">{eve?.description}</p>
+
+              <div className="two_flex_btn">
+                <button
+                  onClick={() => {
+                    setOpenGallery(true);
+                    setEveId(eve?._id);
+                  }}
+                >
+                  View Gallery
+                </button>
+
+                <button
+                  onClick={(e) => {
+                    deleteEveFun(e, eve._id);
+                  }}
+                >
+                  Delete Event
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
       {openGallery && GalleryView}

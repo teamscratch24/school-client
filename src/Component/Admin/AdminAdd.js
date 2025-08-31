@@ -67,12 +67,11 @@ export default function AdminManagement() {
       .post(Urls.REGISTER, { ...adminDetails })
       .then((res) => {
         if (res.status === 201) {
-          setAdminDetails((prev) => ({
-            ...prev,
+          setAdminDetails({
             username: "",
             email: "",
             password: "",
-          }));
+          })
           setAdd(false);
           alert(res.data.msg)
           setRender(!render)
