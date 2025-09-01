@@ -43,11 +43,8 @@ const AnnouncementBar = () => {
   return (
     <div className="container">
       <h2>Annoncement</h2>
-      {announcements.length > 0 && (
-        <div className="bg-yellow-300 text-black text-center py-2 font-medium">
-          {announcements[0].message}
-        </div>
-      )}
+
+      
 
    
       <div className="add_container">

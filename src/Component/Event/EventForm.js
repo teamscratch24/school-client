@@ -23,6 +23,9 @@ export default function EventForm() {
     image: "",
   });
 
+  console.log(event,"ASfasdfasfs");
+  
+
   const handleInputs = (e) => {
     const { value, name, files } = e.target;
     setEventDetails((prev) => ({ ...prev, [name]: value }));

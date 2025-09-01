@@ -17,5 +17,6 @@
 .annonce_list{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
+    margin-top: 20px;
 }

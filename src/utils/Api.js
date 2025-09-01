@@ -11,7 +11,10 @@ const Urls = {
     GETEVENTIMAGES : "/event/gallerywithid",
     ADDANNOUNCEMENT : "/announcements/add",
     DELETEANNOUNCEMENT : "/announcements/delete",
-    GETANNOUNCEMENTS : "/announcements"
+    GETANNOUNCEMENTS : "/announcements",
+    GETLANDINGGALLERYIMAGE : "/landing/all",
+    UPLANDINGIMAGE : "/landing/add",
+    DELETELANDINGIMAGE : "/landing/remove",
 }
 
 export default Urls;
