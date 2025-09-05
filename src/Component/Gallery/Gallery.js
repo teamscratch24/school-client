@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import axiosInstance from "../../utils/apiRequest";
 import Urls from "../../utils/Api";
 
@@ -9,6 +9,7 @@ const Gallery = () => {
     const [openForm,setOpenForm] = useState(false)
     const [render,setRender] = useState(false)
     const [image,setImage] = useState(null)
+    const ref  = useRef(0)
 
      const handleChangeInput = (e) => {
     const { files } = e.target;
@@ -37,6 +38,8 @@ const Gallery = () => {
 
  const UploadImage = (e) => {
     try {
+      if(ref.current === 0){
+        ref.current = 1;
        e.preventDefault();
     if (image) {
       const form = new FormData();
@@ -57,6 +60,7 @@ const Gallery = () => {
         .catch((err) => {
           alert(err.response.data.msg)
         });
+      }
     } else {
       alert("Inputs required");
     }

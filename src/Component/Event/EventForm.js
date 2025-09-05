@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import {  useEffect, useMemo, useRef, useState } from "react";
 import "../Form.css";
 import Urls from "../../utils/Api";
 import dateFun from "../../utils/dateFun";
@@ -15,6 +15,8 @@ export default function EventForm() {
   const [openGallery, setOpenGallery] = useState(false);
   const [render,setRender] = useState(false);
 
+const ref = useRef(0); 
+
   const [eventDetails, setEventDetails] = useState({
     title: "",
     date: "",
@@ -22,9 +24,6 @@ export default function EventForm() {
     time: "",
     image: "",
   });
-
-  console.log(event,"ASfasdfasfs");
-  
 
   const handleInputs = (e) => {
     const { value, name, files } = e.target;
@@ -41,6 +40,8 @@ export default function EventForm() {
 
   const AddEventFun = (e) => {
     try {
+      if(ref.current === 0){
+          ref.current = 1;
       e.preventDefault();
       const eveInput = AppendForm(eventDetails);
       axiosInstance
@@ -51,6 +52,7 @@ export default function EventForm() {
         })
         .then((res) => {
           if (res.status === 201) {
+          
             setAdd(false);
             setEventDetails({
               title: "",
@@ -65,6 +67,7 @@ export default function EventForm() {
         .catch((err) => {
           alert(err.response.data.msg);
         });
+      }
     } catch (error) {}
   };
 

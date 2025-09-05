@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../Form.css";
 import Urls from "../../utils/Api";
 import axiosInstance from "../../utils/apiRequest";
@@ -9,6 +9,7 @@ export default function AdminManagement() {
   const [admins, setAdmins] = useState([ ]);
 
   const role = jwtDecode(localStorage.token).role
+  const ref = useRef(0)
 
   const [render,setRender] = useState(false)
 
@@ -62,6 +63,8 @@ export default function AdminManagement() {
 
   const AddAdmin = (e) => {
     try {
+      if(ref.current === 0){
+        ref.current = 1;
        e.preventDefault();
     axiosInstance
       .post(Urls.REGISTER, { ...adminDetails })
@@ -79,7 +82,8 @@ export default function AdminManagement() {
       })
       .catch((err) => {
         alert(err?.response?.data);
-      });
+      })}
+      
     } catch (error) {
       
     }
